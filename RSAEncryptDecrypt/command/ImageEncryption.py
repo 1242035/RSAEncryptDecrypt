@@ -175,9 +175,9 @@ def creatImage(data, name):
         data = "\x00" * (W * H * 3 - len(data)) + data
 
     img = Image.frombytes("RGB", (W, H), data)
-    img.save("%s_encrypted.bmp"% name)
-    print "Mã hoá thành công!"
-    img.show()
+    img.filename = name
+    img.save(name)
+    #img.show()
 
 
 def read_file_to_Encrypt(file_input, file_rsaKey, file_eccKey):
@@ -200,12 +200,12 @@ def read_file_to_Encrypt(file_input, file_rsaKey, file_eccKey):
 
 
 def recoverImage(data, name):
-    with open("%s_decrypted.bmp" %name, "wb") as outfile:
+    with open(name, "wb") as outfile:
         outfile.write(data)
-
-    im = Image.open("%s_decrypted.bmp" %name[-18])
-    im.show()
-    print "Giải mã thành công!"
+    #img = "%s_decrypted.bmp" %name[-18]
+    #im = Image.open(img)
+    #im.show()
+    #print img
 
 
 def read_file_to_Decrypt(file_input, file_rsaKey, file_eccKey):
@@ -227,44 +227,56 @@ def read_file_to_Decrypt(file_input, file_rsaKey, file_eccKey):
     return data, rsa_privatekey, ecc_privatekey
 
 
-def Encryption():
+def Encryption(args):
 
-    path = str(os.getcwd()) + "/Key/"
-    image = str(raw_input("Nhập tên ảnh cần mã hoá: "))
+    path = os.path.join( str(os.getcwd()), "command", "Key")
+    name = args[2];
+    image = args[3];
 
-    name = str(raw_input("Nhập tên user: "))
+    #image = str(raw_input("Nhập tên ảnh cần mã hoá: "))
+    #name = str(raw_input("Nhập tên user: "))
 
-    rsa_filekey = path + "%s_RSA_publickey.txt" % name
-    ecc_filekey = path + "%s_ECC_publickey.txt" % name
+    rsa_filekey = os.path.join(path , "%s_RSA_publickey.txt" % name);
+    ecc_filekey = os.path.join(path , "%s_ECC_publickey.txt" % name);
 
     data, rsa_publickey, ecc_publickey = read_file_to_Encrypt(image, rsa_filekey, ecc_filekey)
     encrypted = imageEncrypt(data, rsa_publickey, ecc_publickey)
+    name = "%s_encrypted.bmp" % image
+    creatImage(encrypted, name)
+    print name
+    sys.exit(1)
 
-    return creatImage(encrypted, image)
 
+def Decryption(args):
+    path = os.path.join( str(os.getcwd()),"command", "Key")
+    name = args[2]
+    image = args[3]
+    #image = str(raw_input("Nhập tên ảnh cần giải mã: "))
 
-def Decryption():
-    path = str(os.getcwd()) + "/Key/"
-    image = str(raw_input("Nhập tên ảnh cần giải mã: "))
+    #name = str(raw_input("Nhập tên user: "))
 
-    name = str(raw_input("Nhập tên user: "))
-
-    rsa_filekey = path + "%s_RSA_privatekey.txt" % name
-    ecc_filekey = path + "%s_ECC_privatekey.txt" % name
+    rsa_filekey = os.path.join(path , "%s_RSA_privatekey.txt" % name)
+    ecc_filekey = os.path.join(path , "%s_ECC_privatekey.txt" % name)
 
     data, rsa_privatekey, ecc_privatekey = read_file_to_Decrypt(image, rsa_filekey, ecc_filekey)
     decrypted = imageDecrypt(data, rsa_privatekey, ecc_privatekey)
+    out = "%s_decrypted.bmp" %image
+    recoverImage(decrypted, out)
+    print out
+    sys.exit(1)
 
-    return recoverImage(decrypted, image)
+
+
 if __name__ == '__main__':
 
-    def choise(number):
+    def choise(args):
+        number = args[1]
         if number == "1":
-            return KeyGenerate.generateKey()
+            return KeyGenerate.generateKey(args)
         if number == "2":
-            return Encryption()
+            return Encryption(args)
         if number == "3":
-            return Decryption()
+            return Decryption(args)
         if number == "4":
             sys.exit()
         else:
@@ -279,6 +291,6 @@ if __name__ == '__main__':
         x = str(raw_input("Bạn chọn: "))
         choise(x)
 
-    print "Mã hoá hình ảnh bằng RSA & ECC"
+    #print "Mã hoá hình ảnh bằng RSA & ECC"
     while True:
-        Menu()
+        choise(sys.argv)

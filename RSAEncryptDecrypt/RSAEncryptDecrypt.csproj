@@ -45,14 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="formMain.Designer.cs">
+      <DependentUpon>formMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formMain.resx">
+      <DependentUpon>formMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,29 +65,75 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="command\._ECC" />
-    <None Include="command\._Key" />
-    <None Include="command\._RSA" />
-    <None Include="command\ECC\._Curve.pyc" />
-    <None Include="command\ECC\._ECC.pyc" />
-    <None Include="command\ECC\._EccMath.pyc" />
-    <None Include="command\ECC\._EncodeECC.pyc" />
-    <None Include="command\ECC\._KeyECC.pyc" />
-    <None Include="command\ECC\.___init__.pyc" />
-    <None Include="command\ECC\Curve.pyc" />
-    <None Include="command\ECC\ECC.pyc" />
-    <None Include="command\ECC\EccMath.pyc" />
-    <None Include="command\ECC\EncodeECC.pyc" />
-    <None Include="command\ECC\KeyECC.pyc" />
-    <None Include="command\ECC\__init__.pyc" />
-    <None Include="command\RSA\._KeyRSA.pyc" />
-    <None Include="command\RSA\._Prime.pyc" />
-    <None Include="command\RSA\._RsaMath.pyc" />
-    <None Include="command\RSA\.___init__.pyc" />
-    <None Include="command\RSA\KeyRSA.pyc" />
-    <None Include="command\RSA\Prime.pyc" />
-    <None Include="command\RSA\RsaMath.pyc" />
-    <None Include="command\RSA\__init__.pyc" />
+    <None Include="command\._ECC">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\._Key">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\._RSA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\._Curve.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\._ECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\._EccMath.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\._EncodeECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\._KeyECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\.___init__.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\Curve.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\ECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\EccMath.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\EncodeECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\KeyECC.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\ECC\__init__.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\._KeyRSA.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\._Prime.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\._RsaMath.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\.___init__.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\KeyRSA.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\Prime.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\RsaMath.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="command\RSA\__init__.pyc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,43 +147,96 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="command\._histogram.py" />
-    <Content Include="command\._ImageEncryption.py" />
-    <Content Include="command\._KeyGenerate.py" />
-    <Content Include="command\._photo.jpg" />
-    <Content Include="command\ECC\._Curve.py" />
-    <Content Include="command\ECC\._ECC.py" />
-    <Content Include="command\ECC\._EccMath.py" />
-    <Content Include="command\ECC\._EncodeECC.py" />
-    <Content Include="command\ECC\._KeyECC.py" />
-    <Content Include="command\ECC\.___init__.py" />
-    <Content Include="command\ECC\Curve.py" />
-    <Content Include="command\ECC\ECC.py" />
-    <Content Include="command\ECC\EccMath.py" />
-    <Content Include="command\ECC\EncodeECC.py" />
-    <Content Include="command\ECC\KeyECC.py" />
-    <Content Include="command\ECC\__init__.py" />
-    <Content Include="command\histogram.py" />
-    <Content Include="command\ImageEncryption.py" />
-    <Content Include="command\KeyGenerate.py" />
-    <Content Include="command\Key\._hiep_ECC_privatekey.txt" />
-    <Content Include="command\Key\._hiep_ECC_publickey.txt" />
-    <Content Include="command\Key\._hiep_RSA_privatekey.txt" />
-    <Content Include="command\Key\._hiep_RSA_publickey.txt" />
-    <Content Include="command\Key\hiep_ECC_privatekey.txt" />
-    <Content Include="command\Key\hiep_ECC_publickey.txt" />
-    <Content Include="command\Key\hiep_RSA_privatekey.txt" />
-    <Content Include="command\Key\hiep_RSA_publickey.txt" />
-    <Content Include="command\photo.jpg" />
-    <Content Include="command\RSA\._KeyRSA.py" />
-    <Content Include="command\RSA\._Prime.py" />
-    <Content Include="command\RSA\._RsaMath.py" />
-    <Content Include="command\RSA\.___init__.py" />
-    <Content Include="command\RSA\KeyRSA.py" />
-    <Content Include="command\RSA\Prime.py" />
-    <Content Include="command\RSA\RsaMath.py" />
-    <Content Include="command\RSA\__init__.py" />
+    <Content Include="command\._histogram.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\._ImageEncryption.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\._KeyGenerate.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\._Curve.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\._ECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\._EccMath.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\._EncodeECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\._KeyECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\.___init__.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\Curve.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\ECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\EccMath.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\EncodeECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\KeyECC.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ECC\__init__.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\histogram.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\ImageEncryption.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\KeyGenerate.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\Key\t.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\photo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\._KeyRSA.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\._Prime.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\._RsaMath.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\.___init__.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\KeyRSA.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\Prime.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\RsaMath.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="command\RSA\__init__.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
